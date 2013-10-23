@@ -2,8 +2,9 @@ package controllers
 
 import play.api._
 import play.api.mvc._
-import lib.{LatestItemQuery, Story}
+import lib.{Story}
 import scala.concurrent.ExecutionContext.Implicits.global
+import contentapi.LatestItemQuery
 
 object Application extends Controller {
   def index = Action.async {
