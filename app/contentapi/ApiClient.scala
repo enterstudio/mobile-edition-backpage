@@ -11,7 +11,7 @@ import scala.concurrent.Future
 object ApiClient extends FutureAsyncApi with DispatchAsyncHttp with Logging {
   implicit val executionContext = global
 
-  apiKey = Some("ipad-edition-backpage")
+  apiKey = Some("mobile-edition-backpage")
 
   override val targetUrl = IpadBackpageConfiguration.ContentApi.targetUri
 
