@@ -1,7 +1,7 @@
 package contentapi
 
 trait QueryHelper {
-  protected val ContentTypeTags = "(type/article|type/gallery|type/video|type/audio),-type/audioslideshow"
+  protected val ContentTypeTags = "type/article"
 
   protected val baseQuery = ApiClient.item.tag(ContentTypeTags).showElements("image")
 }
