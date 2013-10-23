@@ -1,4 +1,4 @@
-name := "ipad-backpage"
+name := "mobile-edition-backpage"
 
 version := "1.0-SNAPSHOT"
 
