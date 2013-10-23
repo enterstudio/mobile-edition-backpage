@@ -3,6 +3,7 @@ package lib
 import com.gu.openplatform.contentapi.model.{ItemResponse, Content}
 import org.joda.time.DateTime
 import contentapi._
+import scala.language.implicitConversions
 
 object Story {
   def fromContent(content: Content): Story = Story(
