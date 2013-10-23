@@ -9,7 +9,7 @@ trait QueryHelper {
 object LatestItemQuery extends QueryHelper {
   private val singleItemQuery = baseQuery.pageSize(1)
 
-  val news = singleItemQuery.itemId("news")
+  val news = singleItemQuery.itemId("uk-news")
 
   val sport = singleItemQuery.itemId("sport")
 
