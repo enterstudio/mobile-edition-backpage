@@ -1,0 +1,26 @@
+{
+    "packages": {
+        "mobile-edition-backpage": {
+            "type": "asg-elb",
+            "apps": [ "mobile::edition-backpage" ],
+            "data": {
+                "secondsToWait": 900,
+                "port": 18080,
+                "healthcheckGrace": 20,
+                "bucket": "mobile-apps-api-dist",
+                "healthcheck_paths": ["/management/healthcheck"]
+            }
+        }
+    },
+    "recipes":{
+        "default": {
+            "depends" : ["artifactUpload", "deploy"]
+        },
+        "deploy": {
+            "actionsBeforeApp": ["mobile-edition-backpage.deploy"]
+        },
+        "artifactUpload": {
+            "actionsBeforeApp": ["mobile-edition-backpage.uploadArtifacts"]
+        }
+    }
+}
