@@ -13,7 +13,7 @@ object Application extends Controller {
         news <- LatestItemQuery.news.response
         sport <- LatestItemQuery.sport.response
         technology <- LatestItemQuery.technology.response
-        comment <- LatestItemQuery.technology.response
+        comment <- LatestItemQuery.commentIsFree.response
       } yield Ok(views.html.index(
         Story.fromItemResponse(news),
         Story.fromItemResponse(sport),

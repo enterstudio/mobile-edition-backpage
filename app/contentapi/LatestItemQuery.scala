@@ -11,11 +11,11 @@ object LatestItemQuery extends QueryHelper {
 
   val news = singleItemQuery.itemId("uk-news")
 
-  val sport = singleItemQuery.itemId("sport")
+  val sport = singleItemQuery.itemId("uk/sport")
 
   val technology = singleItemQuery.itemId("technology")
 
-  val commentIsFree = singleItemQuery.itemId("commentisfree")
+  val commentIsFree = singleItemQuery.itemId("uk/commentisfree")
 }
 
 object MostReadQuery extends QueryHelper {
