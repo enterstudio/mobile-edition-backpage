@@ -1,7 +1,7 @@
 {
     "packages": {
         "mobile-edition-backpage": {
-            "type": "asg-elb",
+            "type": "autoscaling",
             "apps": [ "mobile::edition-backpage" ],
             "data": {
                 "secondsToWait": 900,
