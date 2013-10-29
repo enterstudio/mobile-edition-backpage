@@ -34,6 +34,7 @@ object ApplicationBuild extends Build {
     .settings(
       testOptions in Test := Nil,
       libraryDependencies ++= Seq(
+        scalaIo % "test",
         clapper,
         contentApi,
         guardianManagementPlay,

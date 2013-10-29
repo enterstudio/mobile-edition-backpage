@@ -7,19 +7,19 @@ trait QueryHelper {
 }
 
 object LatestItemQuery extends QueryHelper {
-  private val singleItemQuery = baseQuery.pageSize(1)
+  private val itemsQuery = baseQuery.pageSize(5)
 
-  val news = singleItemQuery.itemId("uk-news")
+  val news = itemsQuery.itemId("uk-news")
 
-  val sport = singleItemQuery.itemId("uk/sport")
+  val sport = itemsQuery.itemId("uk/sport")
 
-  val technology = singleItemQuery.itemId("technology")
+  val technology = itemsQuery.itemId("technology")
 
-  val commentIsFree = singleItemQuery.itemId("uk/commentisfree")
+  val commentIsFree = itemsQuery.itemId("uk/commentisfree")
 }
 
-object MostReadQuery extends QueryHelper {
+object MostViewedQuery extends QueryHelper {
   val NumberOfStories = 10
 
-  val all = baseQuery.pageSize(NumberOfStories)
+  val all = baseQuery.pageSize(NumberOfStories).showMostViewed(true).itemId("")
 }

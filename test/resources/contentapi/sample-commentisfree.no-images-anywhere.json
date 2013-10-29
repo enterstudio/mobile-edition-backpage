@@ -1,0 +1,88 @@
+{
+  "response":{
+    "status":"ok",
+    "userTier":"free",
+    "total":81911,
+    "startIndex":1,
+    "pageSize":13,
+    "currentPage":1,
+    "pages":6301,
+    "orderBy":"newest",
+    "edition":{
+      "id":"uk/commentisfree",
+      "webTitle":"Comment is free",
+      "webUrl":"http://www.theguardian.com/uk/commentisfree",
+      "apiUrl":"http://content.guardianapis.com/uk/commentisfree",
+      "code":"uk"
+    },
+    "section":{
+      "id":"commentisfree",
+      "webTitle":"Comment is free",
+      "webUrl":"http://www.theguardian.com/commentisfree",
+      "apiUrl":"http://content.guardianapis.com/commentisfree",
+      "editions":[{
+        "id":"commentisfree",
+        "webTitle":"Comment is free",
+        "webUrl":"http://www.theguardian.com/commentisfree",
+        "apiUrl":"http://content.guardianapis.com/commentisfree",
+        "code":"default"
+      },{
+        "id":"uk/commentisfree",
+        "webTitle":"Comment is free",
+        "webUrl":"http://www.theguardian.com/uk/commentisfree",
+        "apiUrl":"http://content.guardianapis.com/uk/commentisfree",
+        "code":"uk"
+      },{
+        "id":"us/commentisfree",
+        "webTitle":"Comment is free",
+        "webUrl":"http://www.theguardian.com/us/commentisfree",
+        "apiUrl":"http://content.guardianapis.com/us/commentisfree",
+        "code":"us"
+      },{
+        "id":"au/commentisfree",
+        "webTitle":"Comment is free",
+        "webUrl":"http://www.theguardian.com/au/commentisfree",
+        "apiUrl":"http://content.guardianapis.com/au/commentisfree",
+        "code":"au"
+      }]
+    },
+    "results":[{
+      "id":"commentisfree/2013/oct/24/you-tell-us",
+      "sectionId":"commentisfree",
+      "sectionName":"Comment is free",
+      "webPublicationDate":"2013-10-24T11:32:50Z",
+      "webTitle":"Ideas for 24-25 October",
+      "webUrl":"http://www.theguardian.com/commentisfree/2013/oct/24/you-tell-us",
+      "apiUrl":"http://content.guardianapis.com/commentisfree/2013/oct/24/you-tell-us",
+      "elements":[]
+    },{
+      "id":"commentisfree/2013/oct/24/argos-catalogue-blue-pens-tablets",
+      "sectionId":"commentisfree",
+      "sectionName":"Comment is free",
+      "webPublicationDate":"2013-10-24T10:56:36Z",
+      "webTitle":"Will you miss the Argos catalogue? | Paula Cocozza",
+      "webUrl":"http://www.theguardian.com/commentisfree/2013/oct/24/argos-catalogue-blue-pens-tablets",
+      "apiUrl":"http://content.guardianapis.com/commentisfree/2013/oct/24/argos-catalogue-blue-pens-tablets",
+      "elements":[]
+    },{
+      "id":"commentisfree/2013/oct/24/edinburgh-saunas-aids-sex-work-police-scotland-gay",
+      "sectionId":"commentisfree",
+      "sectionName":"Comment is free",
+      "webPublicationDate":"2013-10-24T09:44:52Z",
+      "webTitle":"Why are Edinburgh's seamier saunas under attack? | Ally Fogg ",
+      "webUrl":"http://www.theguardian.com/commentisfree/2013/oct/24/edinburgh-saunas-aids-sex-work-police-scotland-gay",
+      "apiUrl":"http://content.guardianapis.com/commentisfree/2013/oct/24/edinburgh-saunas-aids-sex-work-police-scotland-gay",
+      "elements":[]
+    },{
+      "id":"commentisfree/2013/oct/24/rihanna-lady-gaga-burqa-swag",
+      "sectionId":"commentisfree",
+      "sectionName":"Comment is free",
+      "webPublicationDate":"2013-10-24T06:00:05Z",
+      "webTitle":"Rihanna, Lady Gaga and what's really behind burqa swag | Arwa Mahdawi",
+      "webUrl":"http://www.theguardian.com/commentisfree/2013/oct/24/rihanna-lady-gaga-burqa-swag",
+      "apiUrl":"http://content.guardianapis.com/commentisfree/2013/oct/24/rihanna-lady-gaga-burqa-swag",
+      "elements":[]
+    }
+    ]
+  }
+}
