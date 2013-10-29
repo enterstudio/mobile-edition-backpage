@@ -1,0 +1,9 @@
+@(storyType: String, storyOpt: Option[lib.Story])
+<h2>@storyType</h2>
+@for(story <- storyOpt) {
+    <p><a href="@story.webUrl">@story.title</a></p>
+
+    @for(imageUri <- story.imageUri) {
+        <a href="@story.webUrl"><img src="@imageUri" alt="@story.title" /></a>
+    }
+}

@@ -1,13 +1,26 @@
-import com.gu.openplatform.contentapi.model.Content
+import com.gu.openplatform.contentapi.model.{Asset, Content}
 
 package object contentapi {
   implicit class EnrichedContent(content: Content) {
-    /** I wonder how many times this exact same piece of code has been written */
-    def mainImageUri = for {
+    def mainImageAssets: Seq[Asset] = (for {
       elements <- content.elements
       mainImage <- elements find { element => element.`type` == "image" && element.relation == "main" }
-      firstAsset <- mainImage.assets.headOption
-      uri <- firstAsset.file
-    } yield uri
+    } yield mainImage.assets).toSeq.flatten
+  }
+
+  case class Dimensions(width: Int, height: Int) {
+    lazy val aspectRatio = width.toFloat / height
+
+    lazy val area = width * height
+  }
+
+  implicit class EnrichedAsset(asset: Asset) {
+
+    private def typeDataInt(key: String) = asset.typeData.get(key).map(_.toInt)
+
+    lazy val dimensions = for {
+      width <- typeDataInt("width")
+      height <- typeDataInt("height")
+    } yield Dimensions(width, height)
   }
 }

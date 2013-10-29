@@ -1,52 +1,29 @@
-@(news: Option[lib.Story], sport: Option[lib.Story], technology: Option[lib.Story], comment: Option[lib.Story])
+@(news: Option[lib.Story], sport: Option[lib.Story], technology: Option[lib.Story], comment: Option[lib.Story], mostViewed: Seq[lib.Story])
+@import views.html.tags.box
 
 <!DOCTYPE html>
 
 <html>
     <head>
-        <title>From guardian.co.uk</title>
+        <title>From theguardian.com</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
         <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
     </head>
     <body>
-        <h1>From guardian.co.uk</h1>
+        <h1>From theguardian.com</h1>
 
-        <h2>News</h2>
-        @for(story <- news) {
-            <p>@story.title</p>
+        @box("News", news)
+        @box("Sport", sport)
+        @box("Technology", technology)
+        @box("Comment is Free", comment)
 
-            @for(imageUri <- story.imageUri) {
-                <img src="@imageUri" alt="@story.title" />
-            }
+        <h2>Most Viewed</h2>
+        <ul>
+        @for(story <- mostViewed.take(10)) {
+            <li><a href="@story.webUrl">@story.title</a></li>
         }
-
-        <h2>Sport</h2>
-        @for(story <- sport) {
-            <p>@story.title</p>
-
-            @for(imageUri <- story.imageUri) {
-                <img src="@imageUri" alt="@story.title" />
-            }
-        }
-
-        <h2>Technology</h2>
-        @for(story <- technology) {
-            <p>@story.title</p>
-
-            @for(imageUri <- story.imageUri) {
-                <img src="@imageUri" alt="@story.title" />
-            }
-        }
-
-        <h2>Comment is Free</h2>
-        @for(story <- comment) {
-            <p>@story.title</p>
-
-            @for(imageUri <- story.imageUri) {
-                <img src="@imageUri" alt="@story.title" />
-            }
-        }
+        </ul>
     </body>
 </html>
 

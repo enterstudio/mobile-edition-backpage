@@ -12,7 +12,7 @@ class IntegrationSpec extends Specification {
 
       browser.goTo(s"http://localhost:$port/ipad-backpage.html")
 
-      browser.pageSource must contain("From guardian.co.uk")
+      browser.pageSource must contain("From theguardian.com")
     }
   }
 }

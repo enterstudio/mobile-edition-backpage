@@ -4,7 +4,7 @@ import play.api._
 import play.api.mvc._
 import lib.{ Story }
 import scala.concurrent.ExecutionContext.Implicits.global
-import contentapi.LatestItemQuery
+import contentapi.{MostViewedQuery, LatestItemQuery}
 
 object Application extends Controller {
   def index = Action {
@@ -13,12 +13,14 @@ object Application extends Controller {
         news <- LatestItemQuery.news.response
         sport <- LatestItemQuery.sport.response
         technology <- LatestItemQuery.technology.response
-        comment <- LatestItemQuery.technology.response
+        comment <- LatestItemQuery.commentIsFree.response
+        mostViewed <- MostViewedQuery.all.response
       } yield Ok(views.html.index(
-        Story.fromItemResponse(news),
-        Story.fromItemResponse(sport),
-        Story.fromItemResponse(technology),
-        Story.fromItemResponse(comment)))
+        Story.singleStoryFrom(news),
+        Story.singleStoryFrom(sport),
+        Story.singleStoryFrom(technology),
+        Story.singleStoryFrom(comment),
+        Story.mostViewedStoriesFrom(mostViewed)))
     }
   }
 }
