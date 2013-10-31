@@ -9,17 +9,17 @@ trait QueryHelper {
 object LatestItemQuery extends QueryHelper {
   private val itemsQuery = baseQuery.pageSize(5)
 
-  val news = itemsQuery.itemId("uk-news")
+  def news = itemsQuery.itemId("uk-news")
 
-  val sport = itemsQuery.itemId("uk/sport")
+  def sport = itemsQuery.itemId("uk/sport")
 
-  val technology = itemsQuery.itemId("technology")
+  def technology = itemsQuery.itemId("technology")
 
-  val commentIsFree = itemsQuery.itemId("uk/commentisfree")
+  def commentIsFree = itemsQuery.itemId("uk/commentisfree")
 }
 
 object MostViewedQuery extends QueryHelper {
   val NumberOfStories = 10
 
-  val all = baseQuery.pageSize(NumberOfStories).showMostViewed(true).itemId("")
+  def all = baseQuery.pageSize(NumberOfStories).showMostViewed(true).itemId("")
 }
