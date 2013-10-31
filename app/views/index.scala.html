@@ -12,15 +12,12 @@
     <link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")" />
 </head>
 <body>
-    <header role="banner">
+    <header class="header" role="banner">
         <h1>On the website</h1>
 
-        <div class="header-right">
-            <a href="">
-                Visit theguardian
-                <i class="i i-theguardian"></i>
-            </a>
-            <a href="gceRefresh:/refresh">Refresh</a>
+        <div class="header__right">
+            <a class="header__action header__action--visittheguardian" href="">Visit theguardian.com</a>
+            <a class="header__action header__action--refresh" href="gceRefresh:/refresh"><span class="last-updated">31.10.13 15:39</span></a>
         </div>
     </header>
     <main class="wrapper">
