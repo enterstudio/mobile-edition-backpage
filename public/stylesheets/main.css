@@ -14,13 +14,15 @@ body {
     text-size-adjust: 100%;
     font-family: 'DE3 Display Egyptian';
     font-size: 160%;
-    padding: 10px 16px;
+    padding: 0 16px 16px;
 }
-.f-thin     { font-family: 'DE1 Display Egyptian Thin', Georgia, serif; }
-.f-light    { font-family: 'DE2 Display Egyptian Light', Georgia, serif; }
-.f-semibold { font-family: 'DE5 Display Egyptian Semibold', Georgia, serif; }
-.f-bold     { font-family: 'DE6 Display Egyptian Bold', Georgia, serif; }
-.f-titlepiece { font-family: 'Guardian Titlepiece', Georgia, serif; }
+/*
+    Font weight utility classes, just in case
+    .f-thin       { font-family: 'DE1 Display Egyptian Thin', Georgia, serif; font-weight: normal; }
+    .f-light      { font-family: 'DE2 Display Egyptian Light', Georgia, serif; font-weight: normal; }
+    .f-semibold   { font-family: 'DE5 Display Egyptian Semibold', Georgia, serif; font-weight: normal; }
+    .f-bold       { font-family: 'DE6 Display Egyptian Bold', Georgia, serif; font-weight: normal; }
+*/
 
 a {
     text-decoration: none;
@@ -31,15 +33,18 @@ h1,
 h2,
 h3 {
     margin: 0;
+    font-weight: normal;
 }
 
 header {
-    height: 4.8rem;
+    height: 87px;
+    padding-top: 4px;
     overflow: hidden;
 }
 h1 {
     font-family: 'DE6 Display Egyptian Bold', Georgia, serif;
     font-size: 3rem;
+    line-height: 1;
     color: #951C55;
     float: left;
 }
@@ -47,12 +52,11 @@ h1 {
     padding-top: 1rem;
     float: right;
 }
-
 .wrapper {
     position: relative;
     overflow: hidden;
+    display: block;
 }
-
 .boxes {
     overflow: hidden;
 }
@@ -60,6 +64,7 @@ h1 {
     background-color: #FBFBF3;
     float: left;
     width: 50%;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     border-right: 4px solid #e3e3db;
     border-top: 8px solid #e3e3db;
@@ -74,7 +79,7 @@ h1 {
 .box__section {
     font-size: 2rem;
     line-height: 2.4rem;
-    font-family: 'DE1 Display Egyptian Thin', Georgia, serif;
+    font-family: 'DE2 Display Egyptian Light', Georgia, serif;
 }
 .box__section a {
     color: #f07823;
@@ -89,14 +94,14 @@ h1 {
 .box__title {
     padding-left: 8px;
     padding-right: 8px;
-    min-height: 63px;
+    min-height: 95px;
     margin-bottom: 8px;
     font-size: 2.8rem;
     line-height: 3.2rem;
     font-family: 'DE2 Display Egyptian Light', Georgia, serif;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
 .box__media {
@@ -112,7 +117,7 @@ h1 {
     top: 0; right: 0; bottom: 0; left: 0;
 }
 .box__foot {
-    padding: 6px;
+    padding: 8px 6px;
     font-family: 'DE5 Display Egyptian Semibold', Georgia, serif;
     line-height: 1;
 }
@@ -124,7 +129,23 @@ h1 {
     display: none;
     background-color: #EFEFE7;
     border: 2px solid rgba(255, 255, 255, .25);
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
+}
+.aside__title {
+    height: 32px;
+    font-size: 2rem;
+    line-height: 2.4rem;
+    font-family: 'DE1 Display Egyptian Thin', Georgia, serif;
+    color: #f07823;
+    padding: 6px
+}
+.aside__body {
+    padding: 0 6px;
+    position: absolute;
+    top: 32px;
+    bottom: 8px;
+    font-family: 'DE2 Display Egyptian Light', Georgia, serif;
 }
 
 .list {
@@ -146,23 +167,6 @@ h1 {
     display: block;
 }
 
-.aside__title {
-    height: 32px;
-    font-size: 2rem;
-    line-height: 2.4rem;
-    font-family: 'DE1 Display Egyptian Thin', Georgia, serif;
-    color: #f07823;
-    padding: 6px
-}
-
-.aside__body {
-    padding: 0 6px;
-    position: absolute;
-    top: 32px;
-    bottom: 8px;
-    font-family: 'DE2 Display Egyptian Light', Georgia, serif;
-}
-
 @media (orientation: landscape) {
     .wrapper {
         border-right: 4px solid #e3e3db;
@@ -170,8 +174,16 @@ h1 {
     .boxes {
         float: left;
         width: 75%;
+        -webkit-box-sizing: border-box;
         box-sizing: border-box;
         border-right: 4px solid #e3e3db;
+    }
+    .box + .box + .box .box__title {
+        -webkit-line-clamp: 4;
+        min-height: 128px;
+    }
+    .box + .box + .box .box__media {
+        display: none;
     }
     .aside {
         display: block;
