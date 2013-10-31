@@ -1,0 +1,102 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+html {
+    background-color: #e3e3db;
+    color: #333;
+    font-size: 62.5%;
+    text-rendering: optimizeLegibility;
+}
+body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    font-family: 'DE3 Display Egyptian';
+    font-size: 160%;
+    padding: 10px 16px;
+}
+.f-thin     { font-family: 'DE1 Display Egyptian Thin', Georgia, serif;     font-weight: 100; }
+.f-light    { font-family: 'DE2 Display Egyptian Light', Georgia, serif;    font-weight: 200; }
+.f-semibold { font-family: 'DE5 Display Egyptian Semibold', Georgia, serif; font-weight: 500; }
+.f-bold     { font-family: 'DE6 Display Egyptian Bold', Georgia, serif;     font-weight: 600; }
+.f-titlepiece { font-family: 'Guardian Titlepiece', Georgia, serif; font-weight: 900; }
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+h1 {
+    font-family: 'DE6 Display Egyptian Bold', Georgia, serif;
+    font-weight: 600;
+    font-size: 3rem;
+    color: #951C55;
+}
+
+.boxes {
+    overflow: hidden;
+}
+.box {
+    background-color: #FBFBF3;
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    border-right: 4px solid #e3e3db;
+    border-bottom: 8px solid #e3e3db;
+    border-left: 4px solid #e3e3db;
+}
+.box__inner {
+    border: 2px solid rgba(255, 255, 255, .5);
+}
+.box__header {
+    padding: 6px;
+}
+.box__section {
+    font-size: 2rem;
+    line-height: 2.4rem;
+}
+.box__section a {
+    color: #f07823;
+}
+.box__body {
+    padding: 6px;
+}
+.box__action {
+    
+}
+.box__title {
+    margin-bottom: 8px;
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.box__media {
+    margin: 0 -8px;
+    padding-top: 60%;
+    position: relative;
+}
+.box__media img {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+}
+.box__foot {
+    font-weight: bolder;
+    padding: 6px;
+    font-family: 'DE5 Display Egyptian Semibold', Georgia, serif; font-weight: 500;
+}
+.box__foot a {
+    color: #0089C8;
+}

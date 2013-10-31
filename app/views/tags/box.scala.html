@@ -1,9 +1,23 @@
 @(storyType: String, storyOpt: Option[lib.Story])
-<h2>@storyType</h2>
-@for(story <- storyOpt) {
-    <p><a href="@story.webUrl">@story.title</a></p>
-
-    @for(imageUri <- story.imageUri) {
-        <a href="@story.webUrl"><img src="@imageUri" alt="@story.title" /></a>
-    }
-}
+<div class="box">
+    <div class="box__inner">
+        <div class="box__header">
+            <h2 class="box__section"><a href="">@storyType</a></h2>
+        </div>
+        <div class="box__body">
+            @for(story <- storyOpt) {
+                <a href="@story.webUrl" class="box__action">
+                    <h3 class="box__title">@story.title</h3>
+                    <div class="box__media">
+                        @for(imageUri <- story.imageUri) {
+                            <img src="@imageUri" alt="@story.title" />
+                        }
+                    </div>
+                </a>
+            }
+        </div>
+        <div class="box__foot">
+            <a href="">More @storyType</a>
+        </div>
+    </div>
+</div>
