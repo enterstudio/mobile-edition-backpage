@@ -1,50 +1,33 @@
 package contentapi
 
-import com.gu.openplatform.contentapi.{ApiError, FutureAsyncApi}
-import com.gu.openplatform.contentapi.connection.{HttpResponse, DispatchAsyncHttp}
+import com.gu.openplatform.contentapi.FutureAsyncApi
 import grizzled.slf4j.Logging
 import scala.concurrent.ExecutionContext.global
-import conf.{IpadBackpageConfiguration}
-import scala.util.{Failure, Success}
+import conf.{Timer, IpadBackpageConfiguration}
 import scala.concurrent.Future
+import com.gu.openplatform.contentapi.connection.HttpResponse
+import play.api.libs.ws.WS
+import scala.Some
 
-object ApiClient extends FutureAsyncApi with DispatchAsyncHttp with Logging {
+object ApiClient extends FutureAsyncApi with Logging {
   implicit val executionContext = global
 
   apiKey = Some("mobile-edition-backpage")
 
   override val targetUrl = IpadBackpageConfiguration.ContentApi.targetUri
 
-  override protected def fetch(url: String, parameters: Map[String, String]) =
+  override protected def fetch(url: String, parameters: scala.collection.immutable.Map[String, String]) =
     super.fetch(url, IpadBackpageConfiguration.ContentApi.userTier map { userTier =>
       parameters + ("user-tier" -> userTier)
     } getOrElse parameters)
 
-  override protected def get(urlString: String, headers: Iterable[(String, String)] = Nil): Future[HttpResponse] = {
-    val startTime = System.currentTimeMillis
-    lazy val elapsed = System.currentTimeMillis - startTime
-
-    val response = super.get(urlString, headers)
-
-    response onComplete {
-      case Success(_) => {
-        conf.Metrics.contentApi.recordTimeSpent(elapsed)
-        debug(s"Successfully retrieved $urlString from Content API in ${elapsed}ms")
-      }
-
-      case Failure(error) => {
-        conf.Metrics.contentApi.recordTimeSpent(elapsed)
-
-        error match {
-          case ApiError(statusCode, errorMessage) =>
-            logger.error(s"Content API responded with $statusCode error for $urlString after " +
-              s"${elapsed}ms: $errorMessage")
-          case otherError =>
-            logger.error(s"Unexpected error from Content API client for $urlString: ${otherError.getMessage}")
-        }
-      }
+  def GET(urlString: String, headers: Iterable[(String, String)] = Nil): Future[HttpResponse] =
+    Timer.timeFuture {
+      WS.url(urlString).withHeaders(headers.toSeq: _*).get().map(r => HttpResponse(r.body, r.status, r.statusText))
+    }.map {
+      case (result, time) =>
+        info(s"GET $urlString in $time ms")
+        result
     }
 
-    response
-  }
 }
