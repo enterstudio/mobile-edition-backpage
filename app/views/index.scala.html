@@ -6,14 +6,16 @@
 <head>
     <meta charset="utf-8" />
     <title>From theguardian.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="width=device-width; user-scalable=no; initial-scale=1.0; maximum-scale=1.0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black-translucent" names="apple-mobile-web-app-status-bar-style" />
     <link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")" />
 </head>
 <body>
     <header role="banner">
         <h1>On the website</h1>
 
-        <div class="header-actions">
+        <div class="header-right">
             <a href="">
                 Visit theguardian
                 <i class="i i-theguardian"></i>
@@ -21,19 +23,24 @@
             <a href="">Refresh</a>
         </div>
     </header>
-    <div class="boxes">
-        @box("News", news)
-        @box("Sport", sport)
-        @box("Technology", technology)
-        @box("Comment is Free", comment)
-    </div>
-    <div class="aside">
-        <h2>Most read</h2>
-        <ul>
-        @for(story <- mostViewed.take(10)) {
-            <li><a href="@story.webUrl">@story.title</a></li>
-        }
-        </ul>
+    <div class="wrapper">
+        <div class="boxes">
+            @box("News", news)
+            @box("Sport", sport)
+            @box("Technology", technology)
+            @box("Comment is Free", comment)
+        </div>
+        <div class="aside">
+            <h2 class="aside__title">Most read</h2>
+
+            <div class="aside__body native-touch-scroll">
+                <ul class="list">
+                @for(story <- mostViewed.take(10)) {
+                    <li class="list__item"><a href="@story.webUrl" class="list__action">@story.title</a></li>
+                }
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
 </html>
