@@ -1,4 +1,4 @@
-@(news: Option[lib.Story], sport: Option[lib.Story], technology: Option[lib.Story], comment: Option[lib.Story], mostViewed: Seq[lib.Story])
+@(boxes: Seq[lib.Box], mostViewed: Seq[lib.Story])
 @import views.html.tags.box
 
 <!DOCTYPE html>
@@ -39,10 +39,9 @@
     </header>
     <main class="wrapper">
         <div class="boxes">
-            @box("News", news)
-            @box("Sport", sport)
-            @box("Technology", technology)
-            @box("Comment is Free", comment)
+            @for(b <- boxes) {
+                @box(b)
+            }
         </div>
         <div class="aside">
             <h2 class="aside__title">Most read</h2>

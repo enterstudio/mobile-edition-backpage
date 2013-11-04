@@ -1,26 +1,18 @@
 package controllers
 
-import play.api._
 import play.api.mvc._
-import lib.{ Story }
-import scala.concurrent.ExecutionContext.Implicits.global
-import contentapi.{MostViewedQuery, LatestItemQuery}
+import lib.{Boxes, Story}
+import contentapi.MostViewedQuery
+import scala.concurrent.ExecutionContext
+import ExecutionContext.Implicits.global
 
 object Application extends Controller {
   def index = Action {
     Async {
       for {
-        news <- LatestItemQuery.news.response
-        sport <- LatestItemQuery.sport.response
-        technology <- LatestItemQuery.technology.response
-        comment <- LatestItemQuery.commentIsFree.response
+        boxes <- Boxes.fetch()
         mostViewed <- MostViewedQuery.all.response
-      } yield cacheHeaders(30, Ok(views.html.index(
-        Story.singleStoryFrom(news),
-        Story.singleStoryFrom(sport),
-        Story.singleStoryFrom(technology),
-        Story.singleStoryFrom(comment),
-        Story.mostViewedStoriesFrom(mostViewed))))
+      } yield cacheHeaders(30, Ok(views.html.index(boxes, Story.mostViewedStoriesFrom(mostViewed))))
     }
   }
 
