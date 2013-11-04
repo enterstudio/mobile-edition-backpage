@@ -10,6 +10,23 @@
     <meta content="yes" name="apple-mobile-web-app-capable" />
     <meta content="black-translucent" names="apple-mobile-web-app-status-bar-style" />
     <link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")" />
+
+    <script src="//pasteup.guim.co.uk/js/lib/requirejs/2.1.5/require.min.js" ></script>
+    <script>
+    require([ 'http://s.ophan.co.uk/js/ophan.min.js' ], function ( ophan ) {
+        ophan.additionalViewData(function() { return {"platform" : "iOS"}; });
+
+        if ( document.readyState === 'complete' ) {
+            ophan.startLog ( ) ;
+        } else {
+            if ( window.addEventListener ) {
+                window.addEventListener ( 'load', ophan.startLog, false ) ;
+            } else if ( window.attachEvent ) {
+                window.attachEvent ( 'onload', ophan.startLog ) ;
+            }
+        }
+    });
+    </script>
 </head>
 <body>
     <header class="header" role="banner">
