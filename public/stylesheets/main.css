@@ -137,14 +137,6 @@ h1 {
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
 }
-.box__foot {
-    padding: 8px 6px;
-    font-family: 'DE5 Display Egyptian Semibold', Georgia, serif;
-    line-height: 1;
-}
-.box__foot a {
-    color: #0089C8;
-}
 
 .aside {
     display: none;
