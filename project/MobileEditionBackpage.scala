@@ -35,6 +35,7 @@ object ApplicationBuild extends Build {
       testOptions in Test := Nil,
       libraryDependencies ++= Seq(
         scalaIo % "test",
+        scalaUri,
         clapper,
         contentApi,
         guardianManagementPlay,

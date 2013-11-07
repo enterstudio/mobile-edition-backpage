@@ -1,5 +1,6 @@
 @(boxes: Seq[lib.Box], mostViewed: Seq[lib.Story])
 @import views.html.tags.box
+@import lib.CampaignUrl
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +34,7 @@
         <h1>On the website</h1>
 
         <div class="header__right">
-            <a class="header__action header__action--visittheguardian" href="http://www.theguardian.com">Visit theguardian.com</a>
+            <a class="header__action header__action--visittheguardian" href="@CampaignUrl("http://www.theguardian.com")">Visit theguardian.com</a>
             <a class="header__action header__action--refresh" href="gceRefresh:/refresh"><span class="last-updated">@views.Time.string</span></a>
         </div>
     </header>
@@ -49,7 +50,7 @@
             <div class="aside__body native-touch-scroll">
                 <ul class="list">
                 @for(story <- mostViewed.take(10)) {
-                    <li class="list__item"><a href="@story.webUrl" class="list__action">@story.title</a></li>
+                    <li class="list__item"><a href="@CampaignUrl(story.webUrl)" class="list__action">@story.title</a></li>
                 }
                 </ul>
             </div>

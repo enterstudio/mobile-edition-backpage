@@ -1,11 +1,12 @@
 @(box: lib.Box)
+@import lib.CampaignUrl
 <div class="box">
     <div class="box__inner">
         <div class="box__header">
-            <h2 class="box__section"><a href="@box.webUrl">@Html(box.title)</a></h2>
+            <h2 class="box__section"><a href="@CampaignUrl(box.webUrl)">@Html(box.title)</a></h2>
         </div>
         <div class="box__body">
-            <a href="@box.story.webUrl" class="box__action">
+            <a href="@CampaignUrl(box.story.webUrl)" class="box__action">
                 <h3 class="box__title">@Html(box.story.title)</h3>
                 <div class="box__media">
                     @for(imageUri <- box.story.imageUri) {

@@ -18,8 +18,6 @@ object Boxes extends contentapi.QueryHelper {
     } yield for {
       section <- apiResponse.section
       story <- Story.singleStoryFrom(apiResponse)
-    } yield {
-      Box(section.webTitle, section.webUrl, story)
-    }).map(_.flatten)
+    } yield Box(section.webTitle, section.webUrl, story)).map(_.flatten)
   }
 }

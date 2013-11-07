@@ -6,6 +6,8 @@ object Dependencies {
 
   val scalaIo = "com.github.scala-incubator.io" %% "scala-io-core" % "0.4.2"
 
+  val scalaUri = "com.github.theon" %% "scala-uri" % "0.3.6"
+
   val contentApi = "com.gu.openplatform" %% "content-api-client" % "2.7"
 
   // http://code.google.com/p/reflections/issues/detail?id=140
