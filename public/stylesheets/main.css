@@ -12,7 +12,7 @@ html {
 body {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
-    font-family: 'DE3 Display Egyptian';
+    font-family: 'DE3 Display Egyptian', Georgia, serif;
     font-size: 160%;
     padding: 0 15px;
 }
@@ -37,7 +37,7 @@ h3 {
 }
 
 .header {
-    height: 85px;
+    height: 83px;
     padding: 6px 4px 0;
     overflow: hidden;
 }
@@ -90,14 +90,14 @@ h1 {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     border-right: 4px solid #e3e3db;
-    border-top: 8px solid #e3e3db;
+    border-top: 10px solid #e3e3db;
     border-left: 4px solid #e3e3db;
 }
 .box__inner {
-    border: 2px solid #EFEFE7;
+    
 }
 .box__header {
-    padding: 4px 6px;
+    padding: 6px 8px 4px;
 }
 .box__section {
     font-size: 2rem;
@@ -107,8 +107,7 @@ h1 {
     color: #f07823;
 }
 .box__body {
-    margin-left: -2px;
-    margin-right: -2px;
+
 }
 .box__action {
     display: block;
@@ -141,7 +140,6 @@ h1 {
 .aside {
     display: none;
     background-color: #EFEFE7;
-    border: 2px solid #EFEFE7;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
@@ -150,12 +148,12 @@ h1 {
     font-size: 2rem;
     line-height: 2.4rem;
     color: #f07823;
-    padding: 4px 6px;
+    padding: 6px 8px 4px;
 }
 .aside__body {
-    padding: 0 6px;
+    padding: 0 8px;
     position: absolute;
-    top: 32px;
+    top: 34px;
     bottom: 8px;
     font-family: 'DE2 Display Egyptian Light', Georgia, serif;
 }
@@ -181,7 +179,7 @@ h1 {
 
 @media (orientation: landscape) {
     .header {
-        height: 75px;
+        height: 73px;
     }
     .wrapper {
         border-right: 3px solid #e3e3db;
@@ -195,7 +193,7 @@ h1 {
     }
     .box + .box + .box .box__title {
         -webkit-line-clamp: 4;
-        min-height: 128px;
+        min-height: 130px;
     }
     .box + .box + .box .box__media {
         display: none;
@@ -204,7 +202,7 @@ h1 {
         display: block;
         width: 25%;
         position: absolute;
-        top: 8px;
+        top: 10px;
         right: 0;
         bottom: 0;
         overflow: hidden;
