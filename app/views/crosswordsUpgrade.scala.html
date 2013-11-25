@@ -1,0 +1,36 @@
+@()
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Upgrade to the latest version to get Crosswords</title>
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black-translucent" names="apple-mobile-web-app-status-bar-style" />
+    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")" />
+
+    <script src="//pasteup.guim.co.uk/js/lib/requirejs/2.1.5/require.min.js" ></script>
+    <script>
+    require([ 'http://s.ophan.co.uk/js/ophan.min.js' ], function ( ophan ) {
+        ophan.additionalViewData(function() { return {"platform" : "edition-backpage"}; });
+
+        if ( document.readyState === 'complete' ) {
+            ophan.startLog ( ) ;
+        } else {
+            if ( window.addEventListener ) {
+                window.addEventListener ( 'load', ophan.startLog, false ) ;
+            } else if ( window.attachEvent ) {
+                window.attachEvent ( 'onload', ophan.startLog ) ;
+            }
+        }
+    });
+    </script>
+</head>
+<body>
+    <p>Crosswords are available in the latest version of the app, which can be downloaded from the App Store.</p>
+    <p>
+        Please note that you need iOS 6 or above to enable crosswords - please update your iPad via device Settings or
+        email <a href="mailto:ipad@@theguardian.com">ipad@@theguardian.com</a> for assistance.
+    </p>
+</body>
+</html>
