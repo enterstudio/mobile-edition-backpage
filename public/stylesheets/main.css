@@ -7,7 +7,6 @@ html {
     background-color: #e3e3db;
     color: #333;
     font-size: 62.5%;
-    text-rendering: optimizeLegibility;
 }
 body {
     -webkit-text-size-adjust: 100%;
