@@ -175,6 +175,14 @@ h1 {
 .list__action {
     display: block;
 }
+.crosswords {
+	background: url("../images/crosswords_p.png") no-repeat;
+	font-size: 24px;
+	padding-top: 16px;
+}
+.crosswords a {
+	color: #005689;
+}
 
 @media (orientation: landscape) {
     .header {
@@ -205,5 +213,8 @@ h1 {
         right: 0;
         bottom: 0;
         overflow: hidden;
+    }
+    .crosswords {
+	    background-color: url("../images/crosswords_l.png") no-repeat;
     }
 }
