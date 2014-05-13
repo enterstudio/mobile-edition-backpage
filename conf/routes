@@ -3,9 +3,11 @@
 # ~~~~
 
 # iPad backpage, served at 'http://ipad.aggregator.guardian.co.uk/ipad-backpage.html'
-GET        /ipad-backpage.html        controllers.Application.index
+GET        /ipad-backpage.html                 controllers.Application.index
 
-GET     /crosswords/upgrade-required  controllers.Crosswords.upgrade
+GET        /                                   controllers.Application.redirectToIndex
+
+GET        /crosswords/upgrade-required        controllers.Crosswords.upgrade
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file              controllers.Assets.at(path="/public", file)
+GET        /assets/*file                       controllers.Assets.at(path="/public", file)
