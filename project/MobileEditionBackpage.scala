@@ -1,13 +1,12 @@
 import sbt._
 import Keys._
-import com.gu.deploy.PlayArtifact._
+import com.gu.deploy.MagentaArtifact._
 import sbtassembly.Plugin._
 import AssemblyKeys._
 import play.Project._
 import Dependencies._
 
 object ApplicationBuild extends Build {
- 
   val appName         = "mobile-edition-backpage"
   val appVersion      = "1.0-SNAPSHOT"
 
@@ -16,11 +15,8 @@ object ApplicationBuild extends Build {
   val appDependencies = Nil
  
   val main = play.Project(appName, appVersion, appDependencies) 
-  .settings(playArtifactDistSettings: _*)
-      .settings(
-        executableName := appName,
-        jarName in assembly <<= (executableName) { "%s.jar" format _ },
-        testOptions in Test := Nil,
+    .settings(magentaArtifactSettings: _*)
+    .settings(
         mergeStrategy in assembly <<= (mergeStrategy in assembly) {
           (old) => {
             case PathList("gu-conf", xs@_*) => MergeStrategy.filterDistinctLines
@@ -32,7 +28,6 @@ object ApplicationBuild extends Build {
         }
     )
     .settings(
-      testOptions in Test := Nil,
       libraryDependencies ++= Seq(
         scalaIo % "test",
         scalaUri,
@@ -47,5 +42,4 @@ object ApplicationBuild extends Build {
           <exclude module="slf4j-log4j12"/>
         </dependencies>
     )
- 
 }

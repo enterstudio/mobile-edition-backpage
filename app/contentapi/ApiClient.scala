@@ -16,15 +16,10 @@ object ApiClient extends FutureAsyncApi with Logging {
 
   override val targetUrl = IpadBackpageConfiguration.ContentApi.targetUri
 
-  override protected def fetch(url: String, parameters: scala.collection.immutable.Map[String, String]) =
-    super.fetch(url, IpadBackpageConfiguration.ContentApi.userTier map { userTier =>
-      parameters + ("user-tier" -> userTier)
-    } getOrElse parameters)
-
   def GET(urlString: String, headers: Iterable[(String, String)] = Nil): Future[HttpResponse] =
     Timer.timeFuture {
       WS.url(urlString).withHeaders(headers.toSeq: _*).get().map(r => HttpResponse(r.body, r.status, r.statusText))
-    }.map {
+    } map {
       case (result, time) =>
         info(s"GET $urlString in $time ms")
         result
