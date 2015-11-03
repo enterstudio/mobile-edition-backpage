@@ -3,9 +3,9 @@
 # ~~~~
 
 # iPad backpage, served at 'http://ipad.aggregator.guardian.co.uk/ipad-backpage.html'
-GET        /ipad-backpage.html                 controllers.Application.index
+GET        /ipad-backpage.html                 controllers.Application.index(edition: String ?= "uk")
 
-GET        /                                   controllers.Application.redirectToIndex
+GET        /                                   controllers.Application.redirectToIndex(edition: String ?= "uk")
 
 GET        /crosswords/upgrade-required        controllers.Crosswords.upgrade
 

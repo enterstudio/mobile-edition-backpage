@@ -9,5 +9,5 @@ trait QueryHelper {
 object MostViewedQuery extends QueryHelper {
   val NumberOfStories = 10
 
-  def all = baseQuery.pageSize(NumberOfStories).showMostViewed(true).itemId("")
+  def all(edition: String) = baseQuery.pageSize(NumberOfStories).showMostViewed(true).itemId("").edition(edition)
 }
